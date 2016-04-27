@@ -51,6 +51,19 @@
           </div>
 
           {{ if and (ne .Site.Params.comment false) (ne .Params.comment false) }}
+          {{ with .Site.Params.lambdaComments }}
+          <div id="lambda-comments"></div>
+          <script src="//{{ . }}/vendor.js"></script>
+          <script src="//{{ . }}/lambda-comments.js"></script>
+          {{ end }}
+          {{ with .Site.Params.lambdaCommentsProd }}
+          <div id="lambda-comments"></div>
+          <script src="//{{ . }}/lambda-comments.js"></script>
+          {{ end }}
+          {{ with .Site.Params.isso }}
+          <section id="isso-thread"></section>
+          <script data-isso="//{{ . }}/" src="//{{ . }}/js/embed.min.js"></script>
+          {{ end }}
           {{ with .Site.Params.disqusShortname }}
           <div id="disqus_thread"></div>
           <script type="text/javascript">
@@ -63,11 +76,6 @@
           </script>
           <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
           <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-          {{ end }}
-          {{ with .Site.Params.isso }}
-          <script src="//{{ . }}/js/config.js"></script>
-          <script data-main="//{{ . }}/js/embed" src="//{{ . }}/js/components/requirejs/require.js"></script>
-          <section id="isso-thread"></section>
           {{ end }}
           {{ end }}
         </aside>
