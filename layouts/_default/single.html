@@ -58,7 +58,7 @@
           {{ end }}
           {{ with .Site.Params.lambdaCommentsProd }}
           <div id="lambda-comments"></div>
-          <script src="//{{ . }}/lambda-comments.js"></script>
+          <script src="{{ . }}"></script>
           {{ end }}
           {{ with .Site.Params.isso }}
           <section id="isso-thread"></section>
